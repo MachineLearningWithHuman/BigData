@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: Apex_table
+    description: "APEX_CLASS table transformation"
+    database: PC_FIVETRAN_DB
+    schema: FIVETRAN_S3
+    tables:
+      - name: APEX_CLASS
+
+  - name: Apex_V2
+    description: "APEX_CLASS table transformation"
+    database: PC_FIVETRAN_DB
+    schema: TRANSFORMATION
+    tables:
+      - name: APEX_CLASS_V1
+
+  - name: Apex_V3
+    description: "APEX_CLASS table transformation"
+    database: PC_FIVETRAN_DB
+    schema: TRANSFORMATION
+    tables:
+      - name: APEX_CLASS_V2
+        columns:
+          - name: IS_VALID
+            tests:
+                - apex

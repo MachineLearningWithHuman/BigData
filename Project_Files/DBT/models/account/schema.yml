@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: Account_table
+    description: "Account table transformation"
+    database: PC_FIVETRAN_DB
+    schema: FIVETRAN_S3
+    tables:
+      - name: ACCOUNT
+
+  - name: Account_v2
+    description: "Account table transformation"
+    database: PC_FIVETRAN_DB
+    schema: TRANSFORMATION
+    tables:
+      - name: ACCOUNT_V1
+
+  - name: Account_v3
+    description: "Account table transformation"
+    database: PC_FIVETRAN_DB
+    schema: TRANSFORMATION
+    tables:
+      - name: ACCOUNT_V2
+
+  - name: Account_v4
+    description: "Account table transformation"
+    database: PC_FIVETRAN_DB
+    schema: TRANSFORMATION
+    tables:
+      - name: ACCOUNT_V3
+        columns:
+          - name: ANNUAL_REVENUE
+            tests:
+                - account

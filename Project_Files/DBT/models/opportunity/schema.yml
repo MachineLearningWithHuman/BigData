@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: Opportunity_table
+    description: "Opportunity table transformation"
+    database: PC_FIVETRAN_DB
+    schema: FIVETRAN_S3
+    tables:
+      - name: OPPORTUNITY
+        columns:
+          - name: ID
+            tests:
+              - opportunity
+

@@ -1,0 +1,23 @@
+#Check number of rows in both tables
+SELECT CASE
+    when count(t1.*)=count(t2.*) then 'TRUE'
+    else 'FALSE'
+END AS RESULT
+FROM "DEVELOPMENT"."FEEDBACK"."FEEDBACK" as t1, "PC_FIVETRAN_DB"."PUBLIC"."FEEDBACK" as t2;
+#Returns True
+
+#Check number of columns in both tables
+select case
+when max(No_of_columns)-min(No_of_columns)=0 then 'True'
+else 'False'
+end as Result
+from
+(
+  Select count(c1.column_name) as No_of_columns
+from "DEVELOPMENT"."INFORMATION_SCHEMA"."COLUMNS" as c1 where c1.table_name='FEEDBACK' 
+UNION 
+select count(c2.column_name) as No_of_columns from "PC_FIVETRAN_DB"."INFORMATION_SCHEMA"."COLUMNS" as c2 
+where c2.table_name='FEEDBACK'
+);
+
+#Returns false becuase we drop one columns which was unnecessary column i.e Unixreviewtime

@@ -1,0 +1,40 @@
+useimport boto3
+
+
+
+def lambda_handler(event, context):
+    client = boto3.client('s3')
+    bucket='snowpipesourcebucket'
+
+    
+    service_name='s3'
+    region_name='ap-south-1'
+    aws_access_key_id='AKIAWPWG7LQZKDVH3XB4' 
+    aws_secret_access_key='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'
+    s3 = boto3.resource(
+        service_name=service_name,
+        region_name=region_name,
+        aws_access_key_id=aws_access_key_id,
+        aws_secret_access_key=aws_secret_access_key
+        )
+    
+    # List all objects
+   
+    my_bucket=s3.Bucket('snowpipesourcebucket')
+    for my_bucket_object in my_bucket.objects.all():
+        file_name=my_bucket_object.key
+        print (file_name)
+        break
+  
+    
+    copy_source = {
+        'Bucket': 'snowpipesourcebucket',
+        'Key': file_name
+    }
+    s3.meta.client.copy(copy_source, 'user-snowpipe',file_name)
+    client.delete_object(Bucket=bucket, Key=file_name)
+   
+    return {
+        'message': 'success!!'
+    }
+    

@@ -1,0 +1,35 @@
+create or replace table USER_LOGIN (
+   Is_frozen text(7), 
+   Is_Password_Locked text(7),  
+   Last_Modified_By_ID char(20),
+   Last_Modified_Date string,
+   User_ID char(20),
+   User_Login_ID char(20)
+   ); 
+  
+   CREATE OR REPLACE file format PC_FIVETRAN_DB.FIVETRAN_S3.csv_fileformat
+    type = csv
+    field_delimiter = ','
+    skip_header = 1
+    null_if = ('NULL','null')
+    empty_field_as_null = TRUE;
+    
+    create or replace stage  PC_FIVETRAN_DB.FIVETRAN_S3.USERLOGIN_SNOW_STAGE
+url='s3://user-snowpipe/'
+credentials=(aws_key_id='AKIAWPWG7LQZKDVH3XB4' aws_secret_key='7bLwWnfJnvFApej/rLe1TptghRHQzIXo+gJfxQxz')
+file_format=PC_FIVETRAN_DB.FIVETRAN_S3.csv_fileformat
+
+show stages
+
+
+create or replace pipe PC_FIVETRAN_DB.FIVETRAN_S3.user_snowpipe
+auto_ingest=TRUE as 
+copy into  PC_FIVETRAN_DB.FIVETRAN_S3.USER_LOGIN
+from @PC_FIVETRAN_DB.FIVETRAN_S3.USERLOGIN_SNOW_STAGE
+
+DESC pipe user_snowpipe
+
+alter pipe  user_snowpipe refresh;
+
+
+show pipes;

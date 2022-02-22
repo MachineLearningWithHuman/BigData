@@ -1,0 +1,25 @@
+
+create or replace stream  PC_FIVETRAN_DB.FIVETRAN_S3.USERSTREAM
+  on table   PC_FIVETRAN_DB.FIVETRAN_S3.USER_LOGIN
+  
+  select* from userstream
+
+create or replace task PC_FIVETRAN_DB.FIVETRAN_S3.USERTASK
+    warehouse = load_wh 
+    schedule  = '1 minute'
+  when
+    system$stream_has_data('PC_FIVETRAN_DB.FIVETRAN_S3.userstream')
+  as
+    insert into  "DEVELOPMENT"."USER"."USER_LOGIN" 
+    ( Last_Modified_By_ID,Last_Modified_Date, User_ID, User_Login_ID)
+    select 
+      Last_Modified_By_ID,
+      Last_Modified_Date, 
+      User_ID, 
+      User_Login_ID
+    from  PC_FIVETRAN_DB.FIVETRAN_S3.userstream
+    show tasks
+    
+   select * from table(information_schema.task_history()) order by scheduled_time desc; 
+    
+    ALTER TASK usertask suspend

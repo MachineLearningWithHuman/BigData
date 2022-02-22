@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: USER_LIST
+    description: "User list table transformation"
+    database: PC_FIVETRAN_DB
+    schema: FIVETRAN_S3
+    tables:
+      - name: USER_LIST_VIEW_CREATION
+        columns:
+          - name: SORT_ORDER
+            tests:
+              - lists

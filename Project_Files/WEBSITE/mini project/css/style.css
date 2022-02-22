@@ -1,0 +1,230 @@
+body{
+	background-color: #f4f4f4;
+	color: #555;
+	font-family: Arial,Helvetica,sans-serif;	
+	line-height: 1.6em;
+	margin: 0;
+	font-weight: bold;
+	
+}
+.container{
+	width: 80%;
+	margin: auto;
+    	
+
+}
+.container img{
+   
+   position: absolute;
+   left: 10px;
+}
+
+#main-header{
+	background-color:white;
+	color: #fff;
+	padding-bottom: 40px;
+	padding-top: 20px;
+}
+
+
+#nav-bar{
+    width: 98.8%;
+    height: 80px;
+	background-color: #FE2E2E;
+	padding-top: 2px;
+	padding-bottom: 0px;
+	padding-left: 20px;
+
+
+}
+
+#nav-bar ul{
+	padding: 0;
+}
+#nav-bar ul li{
+	float: left;
+	background-color: #FE2E2E;
+	color: #fff;
+	width: 220px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 15px;
+	text-align: center;
+	list-style: none;
+	margin-left: -30px;
+	padding-right: 10px;
+	cursor: pointer;
+
+}
+#nav-bar ul li ul{
+	display: none;
+	text-align: center;
+	opacity: 0.8;
+	}
+#nav-bar ul li:hover > ul{
+
+	display: block;
+}
+
+.background {
+  
+    height: 500px;
+   background-image:  url('https://www.mahindratractor.com/images/home_banner_new2.jpg');
+	background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center left right; 
+   animation: slider 15s infinite linear; 
+}
+
+@keyframes slider{
+
+0% { background-image: url('https://www.mahindratractor.com/images/home_banner_new2.jpg');}
+33% {background-image: url('https://www.mahindratractor.com/images/home_banner_new3.jpg');}
+66% {background-image: url('https://www.mahindratractor.com/images/home_banner_new1.jpg');}
+}
+
+.clear{
+	clear: both;
+}
+
+#product1 img {
+  float: left;
+  width: 33.3%;
+  padding: 5px;
+  box-sizing: border-box;
+  
+}
+#product2 img {
+  float: left;
+  width: 33.3%;
+  padding: 5px;
+  box-sizing: border-box;
+  
+}
+
+#product3 img {
+  float: left;
+  width: 33.3%;
+  padding: 5px;
+  box-sizing: border-box;
+  
+}
+
+.block {
+	float: left;
+	width: 33.3%;
+	padding: 7px;
+	box-sizing: border-box ;
+	}
+
+#column img{
+	
+  float: left;
+  width: 50%;
+  padding-top: 10px;
+  padding-right: 5px;
+  box-sizing: border-box;
+  opacity: 1.0;
+
+}
+#column1 img{
+	
+  float: right;
+  width: 50%;
+  padding-top: 10px;
+  box-sizing: border-box;
+  opacity: 1.0;
+
+}
+#column img:hover{
+	opacity: 0.5;
+}
+
+#column1 img:hover{
+	opacity: 0.5;
+}
+
+
+#main-footer{
+	background: #333;
+	color: #fff;
+	text-align: left;
+	padding: 20px;
+	margin-top:10px;
+  font-weight: 200;
+  font-size: 15px;
+}
+
+#main-footer a{
+  text-decoration: none;
+  color: white;
+  font-weight: 200;
+  font-size: 15px;
+}
+
+#main-footer a:hover{
+  
+  color: red;
+ 
+}
+
+
+.fa {
+     
+  padding: 10px;
+  font-size: 30px;
+  width: 15px;
+  text-align: center;
+  text-decoration: none;
+
+  }
+
+  .fa-facebook{
+  	background: #3B5998;
+    color: white;
+    border-radius: 50%; 
+    position: absolute;
+    right: 100px;
+    
+    opacity: 1.0;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+  border-radius: 50%;
+  position: absolute;
+  right: 60px;
+  
+  opacity: 1.0;
+
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+  border-radius: 50%;
+  position: absolute;
+  right: 20px;
+ 
+  opacity: 1.0;
+
+}
+
+ .fa-facebook:hover
+ {
+ 	opacity: 0.5;
+  
+ }
+  .fa-twitter:hover
+  {
+  	opacity: 0.5;
+
+    }
+
+   .fa-youtube:hover
+   {
+   	opacity: 0.5;
+
+   }
+

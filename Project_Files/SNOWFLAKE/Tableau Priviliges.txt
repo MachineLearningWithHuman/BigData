@@ -1,0 +1,11 @@
+SELECT COLUMN_NAME FROM "SNOWFLAKE"."ACCOUNT_USAGE"."COLUMNS" WHERE TABLE_NAME='APEX_CLASS' AND TABLE_SCHEMA='FIVETRAN_S3';
+
+SELECT COLUMN_NAME FROM "SNOWFLAKE"."ACCOUNT_USAGE"."COLUMNS" WHERE TABLE_NAME='USER_LIST_VIEW_CREATION' and TABLE_SCHEMA='FIVETRAN_S3';
+
+--grant execute task on account to role data_loader;
+
+--grant select on all views in database "DEVELOPMENT" to role data_analyst;
+
+grant usage on database development to role data_analyst;
+
+grant usage on schema OPERATION to role data_analyst;

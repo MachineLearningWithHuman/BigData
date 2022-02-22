@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: LEAD_TABLE
+    description: "lead table transformation"
+    database: PC_FIVETRAN_DB
+    schema: FIVETRAN_S3
+    tables:
+     - name: LEAD
+       columns:
+        - name: LEAD_ID
+          tests: 
+            - lead

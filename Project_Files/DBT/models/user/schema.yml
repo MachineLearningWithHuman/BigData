@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: User_table
+    description: "USER table transformation"
+    database: PC_FIVETRAN_DB
+    schema: FIVETRAN_S3
+    tables:
+      - name: USER
+        columns:
+          - name: ACTIVE
+            tests:
+              - user
+
